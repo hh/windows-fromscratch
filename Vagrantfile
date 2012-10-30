@@ -19,6 +19,7 @@ Vagrant::Config.run do |config|
     chef.cookbooks_path = "cookbooks"
     chef.json = {}
     chef.add_recipe("windows-fromscratch::bginfo")
+    chef.add_recipe("windows-fromscratch::sysinternals")
   end
 
 end

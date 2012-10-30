@@ -18,10 +18,9 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
     chef.json = {}
-    chef.add_recipe("windows-fromscratch::bginfo")
-    chef.add_recipe("windows-fromscratch::sysinternals")
     chef.add_recipe("windows-fromscratch::_annoyances")
-    chef.add_recipe("windows-fromscratch::background")
+    chef.add_recipe("windows-fromscratch::sysinternals")
+    chef.add_recipe("windows-fromscratch::bginfo")
   end
 
 end

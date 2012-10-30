@@ -20,6 +20,8 @@ Vagrant::Config.run do |config|
     chef.json = {}
     chef.add_recipe("windows-fromscratch::bginfo")
     chef.add_recipe("windows-fromscratch::sysinternals")
+    chef.add_recipe("windows-fromscratch::_annoyances")
+    chef.add_recipe("windows-fromscratch::background")
   end
 
 end

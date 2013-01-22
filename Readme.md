@@ -418,4 +418,6 @@ C:\opscode\chef\bin\chef-solo.bat
 [2013-01-22T12:45:34-08:00] INFO: Report handlers complete
 ```
 
+Which should give you something like this:
+
 ![output](https://raw.github.com/hh/hh.github.com/master/windows-fromscratch.png "automated cookbook test")

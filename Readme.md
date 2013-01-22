@@ -10,7 +10,7 @@ bundle install
 bundle exec bash
 ```
 
-The [veewee](jedi4ever/veewee@master) gem includes some windows templates:
+The [veewee](https://github.com/jedi4ever/veewee/tree/master/templates) gem includes some windows templates:
 
 ```
 $ veewee vbox templates | grep windows
@@ -46,7 +46,7 @@ veewee vbox build 'my2008r2'
 
 ## vagrant basebox list
 
-However, I included a few DRYer definitions from opscode/bento@master within this repo:
+However, I included a few DRYer definitions I wrote for [bento](https://github.com/opscode/bento) within this repo:
 
 ```
 $ vagrant basebox list

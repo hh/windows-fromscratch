@@ -44,7 +44,7 @@ You can now edit the definition files stored in definitions/my2008r2 or build th
 veewee vbox build 'my2008r2'
 ```
 
-## vagrant basebox list
+## $ vagrant basebox list
 
 However, I included a few DRYer definitions I wrote for [bento](https://github.com/opscode/bento) in the definitions/ dir.
 
@@ -54,7 +54,9 @@ $ vagrant basebox list
 - windows-2008r2-standard
 ```
 
-### windows-2008r2-standard/definition.rb
+### File: definitions/windows-2008r2-standard/definition.rb
+
+This file includes the windows session and merges it with Windows 2008R2 specific information.
 
 ```ruby
 require File.dirname(__FILE__) + "/../.windows/session.rb"
@@ -63,7 +65,7 @@ iso_src = "http://care.dlservice.microsoft.com//dl/download/7/5/E/75EC4E54-5B02-
 
 session = WINDOWS_SESSION.merge({
     :os_type_id => 'Windows2008_64',
-    :iso_download_instructions => "Download and install full featured software for 180-day trial at http://technet.microsoft.com/en-us/evalcenter/dd459137.aspx",
+    :iso_download_instructions => "Download 180-day trial at http://technet.microsoft.com/en-us/evalcenter/dd459137.aspx",
     :iso_src => iso_src,
     :iso_file => File.basename(iso_src),
     :iso_md5 => "4263be2cf3c59177c45085c0a7bc6ca5",
@@ -73,9 +75,10 @@ session = WINDOWS_SESSION.merge({
 Veewee::Session.declare session 
 ```
 
-## vagrant basebox build windows-2008r2-standard
+## $ vagrant basebox build windows-2008r2-standard
 
-An iso directory will be created and the VBoxGuestAdditions will be downloaded as well as the definitions iso. You can manually copy the iso's into place if you want to avoid downloading in place.
+An iso directory will be created and the VBoxGuestAdditions will be downloaded as well as the iso for the OS.
+You can manually copy the iso's into place if you want to avoid auto-downloading.
 
 ```
 $ vagrant basebox build windows-2008r2-standard
@@ -91,7 +94,7 @@ $ vagrant basebox build windows-2008r2-standard
 
 ### Autounattended.xml on a virtual floppy
 
-Everything within Windows is automated via the Autounattended.xml, which includes formatting disks, creating the vagrant user, and commands for setting up winrm. The Autounattended.xml is placed on a virtual floppy which is attached to the VM as it boots. Windows looks for a file by that name on any removeable media. The rest of the VM parameters come from our definition.rb.
+Everything within Windows is automated via the [Autounattended.xml](https://github.com/hh/windows-fromscratch/blob/master/definitions/windows-2008r2-standard/Autounattend.xml), which auto-formatting/partitioning disks, creating the vagrant user, and commands for setting up winrm. The Autounattended.xml is placed on a virtual floppy which is attached to the VM as it boots. Windows looks for a file by that name on any removeable media. The rest of the VM parameters come from our definition.rb.
 
 ```
 [windows-2008r2-standard] Creating vm windows-2008r2-standard : 384M - 1 CPU - Windows2008_64
@@ -118,7 +121,7 @@ Everything within Windows is automated via the Autounattended.xml, which include
 [windows-2008r2-standard] Found port 7190 available
 ```
 
-## scp equivalent... wincp using wget vbscript to retrieve from a one-shot webserver
+### Copying files to a windows box from plain ruby
 
 Windows doesn't have scp or easy cross platform file copy abilities
 (assuming you have only ruby and not samba4). So we spin up a small
@@ -188,7 +191,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Copyright (C) Microsoft Corporation. All rights reserved.
 ```
 
-## postinstall_files
+### postinstall_files
 
 The postinstall_files are then executed, installing chef and vbox guest utilities:
 
@@ -229,7 +232,7 @@ C:\Users\vagrant>cmd /c e:\VBoxWindowsAdditions-amd64.exe /S
 [vagrant] knife winrm -m 127.0.0.1 -P 5986 -x vagrant -P vagrant COMMAND
 ```
 
-## vagrant basebox validate windows-2008r2-standard
+## $ vagrant basebox validate windows-2008r2-standard
 
 The VM is now running and we can use, customize, and validate it.
 
@@ -275,7 +278,7 @@ Feature: veewee box validation
 0m36.740s
 ```
 
-## vagrant basebox export windows-2008r2-standard
+## $ vagrant basebox export windows-2008r2-standard
 
 We should now export our new windows box so we can share it within our organization for testing.
 
@@ -303,7 +306,7 @@ $ vagrant basebox export windows-2008r2-standard
 ```
 
 
-## Vagrantfile Box config
+### Vagrantfile (Box config section)
 
 We have a Vagrantfile that contains a vm.box_url pointing to the .box file we just created:
 
@@ -314,7 +317,7 @@ Vagrant::Config.run do |config|
 end
 ```
 
-## vagrant up #(box download and import)
+## $ vagrant up
 
 First vagrant imports the basebox from the url which is pointed to the locally generated file in this example.
 
@@ -329,7 +332,7 @@ $ vagrant up
 [default] Importing base box 'windows-2008r2-standard'...
 ```
 
-## Vagrantfile VM config
+### Vagrantfile (VM config section)
 
 ```ruby
 Vagrant::Config.run do |config|
@@ -344,7 +347,7 @@ Vagrant::Config.run do |config|
 end
 ```
 
-## vagrant up #(setting up network, ports, booting, shared folders)
+### vagrant up VM config output
 
 ```
 [default] Matching MAC address for NAT networking...
@@ -365,7 +368,7 @@ vagrant-2008R2
 [default] -- v-csc-1: /tmp/vagrant-chef-1/chef-solo-1/cookbooks
 ```
 
-## Vagrantfile VM provisioning 
+### Vagrantfile (VM provisioning section)
 
 We add a few recipes from our windows-fromscratch cookbook.
 
@@ -379,7 +382,7 @@ We add a few recipes from our windows-fromscratch cookbook.
   end
 ```
 
-## vagrant up #(provisioning via chef_solo)
+### vagrant up VM provisioning output
 
 Note that a solo.rb and dna.json are dynamically created and the cookbooks are mounted. The result is a chef-solo run within the new windows VM that points to the cookbooks outside the VM.
 
@@ -415,4 +418,4 @@ C:\opscode\chef\bin\chef-solo.bat
 [2013-01-22T12:45:34-08:00] INFO: Report handlers complete
 ```
 
-Enjoy.
+![output](https://raw.github.com/hh/hh.github.com/master/windows-fromscratch.png "automated cookbook test")

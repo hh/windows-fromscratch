@@ -10,7 +10,7 @@ bundle install
 bundle exec bash
 ```
 
-The veewee (jedi4ever/veewee@master) gem includes some windows templates:
+The [veewee](jedi4ever/veewee@master) gem includes some windows templates:
 
 ```
 $ veewee vbox templates | grep windows

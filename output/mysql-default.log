@@ -1,0 +1,30 @@
+$ vagrant provision
+[default] Running provisioner: Vagrant::Provisioners::ChefSolo...
+C:\opscode\chef\bin\chef-solo.bat
+[default] Generating chef JSON and uploading...
+[default] Running chef-solo...
+[2013-02-01T16:33:07-08:00] INFO: *** Chef 10.18.2 ***
+[2013-02-01T16:33:34-08:00] INFO: Setting the run_list to ["recipe[mysql]"] from JSON
+[2013-02-01T16:33:34-08:00] INFO: Run List is [recipe[mysql]]
+[2013-02-01T16:33:34-08:00] INFO: Run List expands to [mysql]
+[2013-02-01T16:33:34-08:00] INFO: Starting Chef Run for vagrant-2008R2
+[2013-02-01T16:33:34-08:00] INFO: Running start handlers
+[2013-02-01T16:33:34-08:00] INFO: Start handlers complete.
+[2013-02-01T16:33:38-08:00] WARN: Missing gem 'right_aws'
+[2013-02-01T16:33:41-08:00] WARN: Cloning resource attributes for windows_package[MySQL Connector C 6.0.2] from prior resource (CHEF-3694)
+[2013-02-01T16:33:41-08:00] WARN: Previous windows_package[MySQL Connector C 6.0.2]: C:/tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb:32:in `from_file'
+[2013-02-01T16:33:41-08:00] WARN: Current  windows_package[MySQL Connector C 6.0.2]: C:/tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb:39:in `package'
+[2013-02-01T16:33:41-08:00] INFO: Processing remote_file[/tmp/vagrant-chef-1/mysql-connector-c-6.0.2-win32.msi] action create (mysql::client line /tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb)
+[2013-02-01T16:33:52-08:00] INFO: remote_file[/tmp/vagrant-chef-1/mysql-connector-c-6.0.2-win32.msi] updated
+[2013-02-01T16:33:52-08:00] INFO: Processing windows_package[MySQL Connector C 6.0.2] action install (mysql::client line /tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb)
+[2013-02-01T16:33:52-08:00] INFO: Installing windows_package[MySQL Connector C 6.0.2] version latest
+[2013-02-01T16:33:52-08:00] INFO: Starting installation...this could take awhile.
+[2013-02-01T16:33:56-08:00] INFO: Processing windows_path[C:\Program Files (x86)\MySQL\MySQL Connector C 6.0.2\bin] action add (mysql::client line /tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb)
+[2013-02-01T16:33:56-08:00] INFO: Processing env[PATH] action modify (C line /tmp/vagrant-chef-1/chef-solo-1/cookbooks/windows/providers/path.rb)
+[2013-02-01T16:33:56-08:00] INFO: env[PATH] modified
+[2013-02-01T16:33:56-08:00] INFO: Processing windows_package[MySQL Connector C 6.0.2] action install (mysql::client line /tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb)
+[2013-02-01T16:33:57-08:00] INFO: Processing ruby_block[copy libmysql.dll into ruby path] action create (mysql::client line /tmp/vagrant-chef-1/chef-solo-1/cookbooks/mysql/recipes/client.rb)
+[2013-02-01T16:33:57-08:00] INFO: ruby_block[copy libmysql.dll into ruby path] called
+[2013-02-01T16:33:57-08:00] INFO: Chef Run complete in 22.28125 seconds
+[2013-02-01T16:33:57-08:00] INFO: Running report handlers
+[2013-02-01T16:33:57-08:00] INFO: Report handlers complete

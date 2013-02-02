@@ -95,6 +95,8 @@ Vagrant::Config.run do |config|
     # The AppId is WordPress (http://www.microsoft.com/web/gallery/install.aspx?appid=WordPress)
     # Should probably combine with IIS and not apache
     chef.add_recipe("windows-fromscratch::wordpress")
+    # This worked out of box... need to look at configuring it and plugins
+    # 5 days
 
 
     # Other apps are here...

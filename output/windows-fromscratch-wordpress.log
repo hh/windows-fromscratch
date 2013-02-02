@@ -1,0 +1,52 @@
+$ vagrant provision
+[default] Running provisioner: Vagrant::Provisioners::ChefSolo...
+C:\opscode\chef\bin\chef-solo.bat
+[default] Generating chef JSON and uploading...
+[default] Running chef-solo...
+[2013-02-01T17:33:48-08:00] INFO: *** Chef 10.18.2 ***
+[2013-02-01T17:34:16-08:00] INFO: Setting the run_list to ["recipe[windows-fromscratch::wordpress]"] from JSON
+[2013-02-01T17:34:16-08:00] INFO: Run List is [recipe[windows-fromscratch::wordpress]]
+[2013-02-01T17:34:16-08:00] INFO: Run List expands to [windows-fromscratch::wordpress]
+[2013-02-01T17:34:16-08:00] INFO: Starting Chef Run for vagrant-2008R2
+[2013-02-01T17:34:16-08:00] INFO: Running start handlers
+[2013-02-01T17:34:16-08:00] INFO: Start handlers complete.
+[2013-02-01T17:34:19-08:00] WARN: Missing gem 'right_aws'
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-api] action install (windows::default line /tmp/vagrant-chef-1/
+chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                         
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-service] action install (windows::default line /tmp/vagrant-che
+f-1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                     
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[windows-api] action install (windows::default line /tmp/vagrant-chef-
+1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                       
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[windows-pr] action install (windows::default line /tmp/vagrant-chef-1
+/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                        
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-dir] action install (windows::default line /tmp/vagrant-chef-1/
+chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                         
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-event] action install (windows::default line /tmp/vagrant-chef-
+1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                       
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-mutex] action install (windows::default line /tmp/vagrant-chef-
+1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                       
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-api] action install (windows::default line /tmp/vagrant-chef-1/
+chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                         
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-service] action install (windows::default line /tmp/vagrant-che
+f-1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                     
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[windows-api] action install (windows::default line /tmp/vagrant-chef-
+1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                       
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[windows-pr] action install (windows::default line /tmp/vagrant-chef-1
+/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                        
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-dir] action install (windows::default line /tmp/vagrant-chef-1/
+chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                         
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-event] action install (windows::default line /tmp/vagrant-chef-
+1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                       
+[2013-02-01T17:34:21-08:00] INFO: Processing chef_gem[win32-mutex] action install (windows::default line /tmp/vagrant-chef-
+1/chef-solo-1/cookbooks/windows/recipes/default.rb)                                                                       
+[2013-02-01T17:34:21-08:00] INFO: Processing remote_file[msi] action create (webpi::install-msi line /tmp/vagrant-chef-1/ch
+ef-solo-1/cookbooks/webpi/recipes/install-msi.rb)                                                                         
+[2013-02-01T17:34:22-08:00] INFO: Processing windows_package[Web Platform Installer] action install (webpi::install-msi lin
+e /tmp/vagrant-chef-1/chef-solo-1/cookbooks/webpi/recipes/install-msi.rb)                                                 
+[2013-02-01T17:34:22-08:00] INFO: Installing windows_package[Web Platform Installer] version latest
+[2013-02-01T17:34:22-08:00] INFO: Starting installation...this could take awhile.
+[2013-02-01T17:34:23-08:00] INFO: Processing webpi_product[WordPress] action install (windows-fromscratch::wordpress line /
+tmp/vagrant-chef-1/chef-solo-1/cookbooks/windows-fromscratch/recipes/wordpress.rb)                                        
+[2013-02-01T17:35:04-08:00] INFO: Chef Run complete in 48.046875 seconds
+[2013-02-01T17:35:04-08:00] INFO: Running report handlers
+[2013-02-01T17:35:04-08:00] INFO: Report handlers complete

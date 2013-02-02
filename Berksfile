@@ -1,5 +1,5 @@
 site :opscode
 
-metadata
+# metadata
 
 cookbook 'windows-fromscratch', github: 'hh-cookbooks/windows-fromscratch'

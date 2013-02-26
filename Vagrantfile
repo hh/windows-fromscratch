@@ -21,6 +21,8 @@ Vagrant::Config.run do |config|
     chef.add_recipe("windows-fromscratch::_annoyances")
     chef.add_recipe("windows-fromscratch::sysinternals")
     chef.add_recipe("windows-fromscratch::bginfo")
+    chef.add_recipe("windows-fromscratch::_ie_annoyances")
+    chef.add_recipe("windows-fromscratch::domain_controller")
   end
 
 end

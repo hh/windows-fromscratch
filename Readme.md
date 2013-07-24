@@ -40,7 +40,11 @@ The following command would create a definitions/my2008r2/definition.rb which yo
 ```
 $ veewee vbox define 'my2008r2' 'windows-2008R2-serverstandard-amd64-winrm'
 The basebox 'my2008r2' has been successfully created from the template 'windows-2008R2-serverstandard-amd64-winrm'
+```
+
 You can now edit the definition files stored in definitions/my2008r2 or build the box with:
+
+```
 veewee vbox build 'my2008r2'
 ```
 
